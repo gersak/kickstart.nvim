@@ -13,10 +13,21 @@ return {
 	{"sainnhe/everforest", lazy = false},
 	{"morhetz/gruvbox", lazy = false},
 	{"vim-scripts/Fruidle", lazy = false},
-	{"ggandor/leap.nvim",
+	{"guns/vim-sexp", lazy = false},
+	{
+		"norcalli/nvim-colorizer.lua",
 		lazy = false,
 		config = function ()
-			require('leap').add_default_mappings()
+			require'colorizer'.setup()
+		end
+	},
+	{
+		"ggandor/leap.nvim",
+		lazy = false,
+		config = function ()
+			-- require('leap').add_default_mappings()
+			vim.keymap.set('n','s','<Plug>(leap-forward-to)')
+			vim.keymap.set('n','S','<Plug>(leap-backward-to)')
 			require('leap').init_highlight(true)
 		end
 	},

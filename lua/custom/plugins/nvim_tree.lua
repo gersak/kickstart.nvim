@@ -82,7 +82,7 @@ return {
 		},
 		keys = {
 			{"<C-n>", "<cmd>NvimTreeToggle<cr>"},
-			{"<leader>e", "<cmd>NvimTreeFocus<cr>"},
+			{"<leader>n", "<cmd>NvimTreeFocus<cr>"},
 		},
 		config = function(_, opts)
 			require("nvim-tree").setup(opts)
