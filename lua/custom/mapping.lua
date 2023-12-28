@@ -18,6 +18,9 @@ M.setup = function()
 
   vim.keymap.set('n', '#', '*N', { desc = 'Search for word under cursor', noremap = true, silent = true })
   vim.keymap.set('n', '<leader>8', ':nohlsearch<cr>', { desc = 'Cancel highlight search', noremap = true, silent = true })
+
+
+  vim.keymap.set('n', '<leader>fe', '<cmd>lua vim.lsp.buf.format()<cr>', { desc = 'Cancel highlight search', noremap = true, silent = true })
 end
 
 return M
