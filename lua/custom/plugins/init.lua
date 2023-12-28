@@ -13,6 +13,11 @@ return {
 	{"sainnhe/everforest", lazy = false},
 	{"morhetz/gruvbox", lazy = false},
 	{"vim-scripts/Fruidle", lazy = false},
+	{"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function() vim.fn["mkdp#util#install"]() end,
+	},
 	{"guns/vim-sexp", lazy = false},
 	{
 		"norcalli/nvim-colorizer.lua",
