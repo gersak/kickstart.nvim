@@ -22,7 +22,7 @@ return {
   },
   { "guns/vim-sexp",                              lazy = false },
   {
-    "norcalli/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua",
     lazy = false,
     config = function()
       require 'colorizer'.setup()

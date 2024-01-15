@@ -8,6 +8,9 @@ M.setup = function()
   -- vim.o.autoindent = false
   -- vim.o.smartindent = false
   -- vim.o.cindent = false
+  vim.opt.tabstop = 2
+  vim.opt.shiftwidth = 2
+  vim.opt.expandtab = true
   local trouble = require("trouble.providers.telescope")
 
   local telescope = require("telescope")
@@ -19,6 +22,7 @@ M.setup = function()
       },
     },
   }
+  require("ibl").update { enabled = false }
 end
 
 
