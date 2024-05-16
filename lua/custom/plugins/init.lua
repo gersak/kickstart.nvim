@@ -14,6 +14,7 @@ return {
   { "sainnhe/everforest",     lazy = false },
   { "morhetz/gruvbox",        lazy = false },
   { "vim-scripts/Fruidle",    lazy = false },
+  { "jparise/vim-graphql",    lazy = false },
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

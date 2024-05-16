@@ -1,5 +1,19 @@
 local M = {}
 
+
+function ToggleLineNumbers()
+    if vim.wo.relativenumber then
+        vim.wo.relativenumber = false
+        vim.wo.number = false
+    elseif vim.wo.number then
+        vim.wo.relativenumber = true
+    else
+        vim.wo.number = true
+    end
+end
+
+
+
 M.setup = function()
   vim.keymap.set('n', 'L', '<cmd>tabnext<cr>', { desc = 'GoTo left tab' })
   vim.keymap.set('n', 'H', '<cmd>tabNext<cr>', { desc = 'GoTo Right tab' })
@@ -21,6 +35,10 @@ M.setup = function()
 
 
   vim.keymap.set('n', '<leader>fe', '<cmd>lua vim.lsp.buf.format()<cr>', { desc = 'Cancel highlight search', noremap = true, silent = true })
+
+  vim.keymap.set('n', '<C-l>', ':lua ToggleLineNumbers()<CR>', {noremap = true, silent = true})
 end
+
+
 
 return M

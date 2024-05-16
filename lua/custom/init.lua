@@ -30,4 +30,6 @@ end
 vim.o.hlsearch = true
 vim.o.incsearch = true
 
+
+
 return M
