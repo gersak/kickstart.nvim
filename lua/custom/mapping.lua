@@ -27,6 +27,7 @@ M.setup = function()
   vim.keymap.set('n', '<C-left>', '<cmd>res -5<cr>', { desc = 'Resize window horizontal -5' })
 
   vim.keymap.set('n', '<leader>ft', '<cmd>Telescope colorscheme<cr>', { desc = '[F]ind [T]erminal' })
+  vim.keymap.set('n', '<leader>fw', '<cmd>Telescope current_buffer_fuzzy_find<cr>', { desc = '[F]ind [W]ord' })
   vim.keymap.set('n', '[g', '<cmd>lua vim.diagnostic.goto_prev()<cr>', { desc = 'Find previous error' })
   vim.keymap.set('n', ']g', '<cmd>lua vim.diagnostic.goto_next()<cr>', { desc = 'Find next error' })
 
