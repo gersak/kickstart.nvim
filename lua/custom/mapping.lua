@@ -1,18 +1,15 @@
 local M = {}
 
-
 function ToggleLineNumbers()
-    if vim.wo.relativenumber then
-        vim.wo.relativenumber = false
-        vim.wo.number = false
-    elseif vim.wo.number then
-        vim.wo.relativenumber = true
-    else
-        vim.wo.number = true
-    end
+  if vim.wo.relativenumber then
+    vim.wo.relativenumber = false
+    vim.wo.number = false
+  elseif vim.wo.number then
+    vim.wo.relativenumber = true
+  else
+    vim.wo.number = true
+  end
 end
-
-
 
 M.setup = function()
   vim.keymap.set('n', 'L', '<cmd>tabnext<cr>', { desc = 'GoTo left tab' })
@@ -34,12 +31,19 @@ M.setup = function()
   vim.keymap.set('n', '#', '*N', { desc = 'Search for word under cursor', noremap = true, silent = true })
   vim.keymap.set('n', '<leader>8', ':nohlsearch<cr>', { desc = 'Cancel highlight search', noremap = true, silent = true })
 
-
   vim.keymap.set('n', '<leader>fe', '<cmd>lua vim.lsp.buf.format()<cr>', { desc = 'Cancel highlight search', noremap = true, silent = true })
 
-  vim.keymap.set('n', '<C-l>', ':lua ToggleLineNumbers()<CR>', {noremap = true, silent = true})
+  vim.keymap.set('n', '<C-l>', ':lua ToggleLineNumbers()<CR>', { noremap = true, silent = true })
+
+  vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+  vim.keymap.set('n', ';', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+  vim.keymap.set('n', '<leader>/', function()
+    -- You can pass additional configuration to telescope to change theme, layout, etc.
+    require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+      winblend = 10,
+      previewer = false,
+    })
+  end, { desc = '[/] Fuzzily search in current buffer' })
 end
-
-
 
 return M
