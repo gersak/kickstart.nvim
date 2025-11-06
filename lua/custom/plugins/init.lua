@@ -4,7 +4,24 @@
 -- See the kickstart.nvim README for more information
 
 return {
-  'Olical/conjure',
+  -- Ensure cmp is installed
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp',
+      'saadparwaiz1/cmp_luasnip',
+      'L3MON4D3/LuaSnip',
+    },
+  },
+
+  -- Load conjure completion only if cmp exists
+  {
+    'Olical/cmp-conjure',
+    dependencies = { 'hrsh7th/nvim-cmp' },
+    ft = { 'clojure', 'fennel' },
+  },
   'PaterJason/cmp-conjure',
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',

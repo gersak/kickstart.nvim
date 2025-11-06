@@ -7,16 +7,21 @@ M.setup = function()
   vim.cmd.colorscheme 'catppuccin'
   vim.o.guicursor = 'a:block-Cursor'
   vim.api.nvim_set_hl(0, 'Cursor', { fg = '#000000', bg = '#ff0000' })
-  -- vim.o.autoindent = false
-  -- vim.o.smartindent = false
-  -- vim.o.cindent = false
+
   vim.opt.tabstop = 2
   vim.opt.shiftwidth = 2
   vim.opt.expandtab = true
   vim.opt.number = false
   vim.o.splitbelow = false
   vim.o.splitright = false
-  require('lspconfig').dartls.setup {}
+
+  -- ✅ NEW LSP API
+  local cfg = vim.lsp.config
+
+  vim.lsp.start(cfg.pyright)
+  vim.lsp.start(cfg.dartls)
+  vim.lsp.start(cfg.ts_ls) -- tsserver → ts_ls
+
   local trouble = require 'trouble.sources.telescope'
   local telescope = require 'telescope'
   telescope.setup {
@@ -27,7 +32,6 @@ M.setup = function()
       },
     },
   }
-  -- require('ibl').update { enabled = false }
 end
 
 vim.o.hlsearch = true
