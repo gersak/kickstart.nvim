@@ -15,6 +15,7 @@ return {
   { 'bignimbus/pop-punk.vim', lazy = false },
   { 'sainnhe/everforest', lazy = false },
   { 'morhetz/gruvbox', lazy = false },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   { 'vim-scripts/Fruidle', lazy = false },
   { 'jparise/vim-graphql', lazy = false },
   {

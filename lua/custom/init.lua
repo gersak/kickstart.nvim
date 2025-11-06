@@ -4,7 +4,9 @@ local mappings = require 'custom.mapping'
 
 M.setup = function()
   mappings.setup()
-  vim.cmd.colorscheme 'pop-punk'
+  vim.cmd.colorscheme 'catppuccin'
+  vim.o.guicursor = 'a:block-Cursor'
+  vim.api.nvim_set_hl(0, 'Cursor', { fg = '#000000', bg = '#ff0000' })
   -- vim.o.autoindent = false
   -- vim.o.smartindent = false
   -- vim.o.cindent = false
